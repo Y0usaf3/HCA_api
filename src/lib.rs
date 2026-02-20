@@ -188,11 +188,11 @@ const URL_BASE: &str = "https://auth.hackclub.com";
 
 impl HCAuth {
     /// Creat New HCAuth by sniffing the config file :3
-    pub fn new(client_id: String, client_secrets: String, redirect_uri: String) -> Self {
+    pub fn new(client_id: &str, client_secrets: &str, redirect_uri: &str) -> Self {
         HCAuth {
-            client_id,
-            client_secrets,
-            redirect_uri,
+            client_id: client_id.to_string(),
+            client_secrets: client_secrets.to_string(),
+            redirect_uri: redirect_uri.to_string(),
         }
     }
 
