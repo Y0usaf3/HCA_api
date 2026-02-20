@@ -186,18 +186,14 @@ struct Identities {
 
 const URL_BASE: &str = "https://auth.hackclub.com";
 
-impl Default for HCAuth {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 impl HCAuth {
     /// Creat New HCAuth by sniffing the config file :3
-    pub fn new() -> Self {
-        let config_str = std::fs::read_to_string("hca.toml").unwrap();
-        let config: HCAuth = toml::from_str(config_str.as_str()).unwrap();
-        config
+    pub fn new(client_id: String, client_secrets: String, redirect_uri: String) -> Self {
+        HCAuth {
+            client_id,
+            client_secrets,
+            redirect_uri,
+        }
     }
 
     /// Exchange an OAuth code for access and ID tokens.
