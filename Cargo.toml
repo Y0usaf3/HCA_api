@@ -9,7 +9,7 @@ description = "a crate to interact with hackclubs oauth api, its unoficial :p"
 license = "MIT"
 
 [dependencies]
-jsonwebtoken = {version="10.2.0",features=["rust_crypto"]}
+jsonwebtoken = {version="10.3.0",features=["rust_crypto"]}
 reqwest = { version = "0.12.26", features = ["json"] }
 serde = "1.0.228"
 toml = "0.9.8"
