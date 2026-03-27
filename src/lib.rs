@@ -241,9 +241,9 @@ impl HCAuth {
         format!(
             "{}/oauth/authorize?client_id={}&redirect_uri={}&response_type=code&scope={}",
             URL_BASE,
-            self.client_id,
-            self.redirect_uri,
-            scopes.join("+")
+            urlencoding::encode(&self.client_id),
+            urlencoding::encode(&self.redirect_uri),
+            urlencoding::encode(&scopes.join(" "))
         )
     }
 
@@ -252,8 +252,8 @@ impl HCAuth {
         format!(
             "{}/oauth/authorize?client_id={}&prompt=login&redirect_uri={}&max_age={}",
             URL_BASE,
-            self.client_id,
-            self.redirect_uri,
+            urlencoding::encode(&self.client_id),
+            urlencoding::encode(&self.redirect_uri),
             max_age.unwrap_or(0)
         )
     }
