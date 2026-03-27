@@ -90,7 +90,7 @@ struct QueryParams<'a> {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Identity {
     pub id: String,
-    pub ysws_eligible: bool,
+    pub ysws_eligible: Option<bool>,
     pub verification_status: Option<VerificationStatus>,
     pub first_name: Option<String>,
     pub last_name: Option<String>,
