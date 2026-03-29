@@ -148,7 +148,7 @@ struct UserInfo {
     pub ysws_eligible: Option<bool>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Token {
     pub access_token: Option<String>,
     pub expires_in: Option<u32>,
@@ -243,7 +243,7 @@ impl HCAuth {
             URL_BASE,
             urlencoding::encode(&self.client_id),
             urlencoding::encode(&self.redirect_uri),
-            urlencoding::encode(&scopes.join(" "))
+            urlencoding::encode(&scopes.join("+"))
         )
     }
 
