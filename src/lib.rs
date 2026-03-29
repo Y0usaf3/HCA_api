@@ -243,7 +243,7 @@ impl HCAuth {
             URL_BASE,
             urlencoding::encode(&self.client_id),
             urlencoding::encode(&self.redirect_uri),
-            urlencoding::encode(&scopes.join("+"))
+            urlencoding::encode(&scopes.join(" "))
         )
     }
 
